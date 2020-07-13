@@ -9,6 +9,7 @@
       ./apache.nix
       ./services.nix
       ./users.nix
+      ./nvidia.nix
     ];
 
   # This value determines the NixOS release from which the default

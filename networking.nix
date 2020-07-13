@@ -25,6 +25,7 @@
     ''
 	127.0.0.1 siapmii.com siapmiiprod.com
 	127.0.0.1 devufi.io ufiacademy.com
+  127.0.0.1 dropit.io
     '';
 
 }

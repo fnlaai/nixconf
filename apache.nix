@@ -12,8 +12,9 @@ services.httpd.user = "alfianguide";
 services.httpd.group = "users";
 services.httpd.virtualHosts =
     let
-      makeVirtualHost = { root, host }:
-        { documentRoot = root;
+      makeVirtualHost = { root, host}:
+        {
+          documentRoot = root;
           adminAddr = "admin@example.com";
           forceSSL = true;
 	  sslServerCert = "/home/alfianguide/ssl/${host}.crt";
@@ -21,9 +22,9 @@ services.httpd.virtualHosts =
 	  extraConfig = ''
 	  <Directory "${root}">
           	 Options Indexes FollowSymLinks
- 		 AllowOverride All
-		 Require all granted
-		 DirectoryIndex index.php index.html
+ 		         AllowOverride All
+		         Require all granted
+		         DirectoryIndex index.php index.html
 	  </Directory>
         '';
         };
