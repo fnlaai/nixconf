@@ -22,15 +22,17 @@ services.httpd.virtualHosts =
 	  extraConfig = ''
 	  <Directory "${root}">
           	 Options Indexes FollowSymLinks
- 		         AllowOverride All
-		         Require all granted
-		         DirectoryIndex index.php index.html
+ 		 AllowOverride All
+		 Require all granted
+		 DirectoryIndex index.php index.html
 	  </Directory>
         '';
         };
     in
-      { "siapmii.com" = (makeVirtualHost { root = "/home/alfianguide/prj/siapmii"; host = "localhost"; });
+      {
+        "siapmii.com" = (makeVirtualHost { root = "/home/alfianguide/prj/siapmii"; host = "localhost"; });
         "devufi.io" = (makeVirtualHost { root = "/home/alfianguide/prj/ufiacademy"; host = "devufi"; });
+	"ufiprod.io" = (makeVirtualHost { root = "/home/alfianguide/prj/ufiprod"; host = "localhost"; });
       };
 
 }

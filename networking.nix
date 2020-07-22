@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 {
+
   networking.hostName = "deepweb"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
   networking.networkmanager.enable = true;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -24,8 +26,12 @@
   networking.extraHosts =
     ''
 	127.0.0.1 siapmii.com siapmiiprod.com
-	127.0.0.1 devufi.io ufiacademy.com
-  127.0.0.1 dropit.io
+	127.0.0.1 devufi.io ufiacademy.com ufiprod.io
+  	127.0.0.1 dropit.io
     '';
 
+  networking.resolvconf.useLocalResolver = true;
+  networking.nameservers = [ "::1"];
+  networking.networkmanager.dns = "none";
+  networking.dhcpcd.extraConfig = "nohook resolv.conf";
 }
