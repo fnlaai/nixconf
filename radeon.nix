@@ -13,7 +13,8 @@
   #];
   services.xserver.videoDrivers = [ "amdgpu" ];
   hardware.cpu.amd.updateMicrocode = true;
-  hardware.opengl.enable = true;                                              hardware.opengl.driSupport = true;
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
   services.xserver.extraDisplaySettings = ''
       Depth        24
