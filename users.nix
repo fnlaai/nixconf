@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  
   users.users.alfianguide = {
      isNormalUser = true;
      shell = pkgs.fish;

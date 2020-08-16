@@ -17,6 +17,7 @@
       ./users.nix
       #./radeon.nix
       #./nvidia.nix
+      ./scripts.nix
     ];
 
   # This value determines the NixOS release from which the default
