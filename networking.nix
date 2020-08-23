@@ -5,7 +5,6 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   networking.networkmanager.enable = true;
-  networking.networkmanager.unmanaged = [ "docker0" "virbr0" "anbox0" ];
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -26,6 +25,7 @@
 
   networking.extraHosts =
     ''
+	127.0.0.1 alfianguide.io
 	127.0.0.1 siapmii.com siapmiiprod.com
 	127.0.0.1 devufi.io ufiacademy.com ufiprod.io
   	127.0.0.1 dropit.io

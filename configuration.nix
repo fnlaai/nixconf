@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -10,14 +6,14 @@
       ./hardware-configuration.nix
       ./hw.nix
       ./apps.nix
-      ./apache.nix
       ./primary.nix
       ./networking.nix
+      ./apache.nix
       ./services.nix
       ./users.nix
-      #./radeon.nix
       #./nvidia.nix
-      ./scripts.nix
+      #./radeon.nix
+      ./xserver.nix
     ];
 
   # This value determines the NixOS release from which the default

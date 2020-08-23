@@ -21,7 +21,7 @@ services.httpd.virtualHosts =
 	  sslServerKey = "/home/alfianguide/ssl/${host}.key";
 	  extraConfig = ''
 	  <Directory "${root}">
-     Options Indexes FollowSymLinks
+          	 Options Indexes FollowSymLinks
  		 AllowOverride All
 		 Require all granted
 		 DirectoryIndex index.php index.html
@@ -30,16 +30,10 @@ services.httpd.virtualHosts =
         };
     in
       {
-        "siapmii.com" = (makeVirtualHost { root = "/home/alfianguide/prj/siapmii"; host = "localhost"; });
+        "alfianguide.io" = (makeVirtualHost { root = "/home/alfianguide/prj/alfianguide"; host = "localhost"; });
+	"siapmii.com" = (makeVirtualHost { root = "/home/alfianguide/prj/siapmii"; host = "localhost"; });
         "devufi.io" = (makeVirtualHost { root = "/home/alfianguide/prj/ufiacademy"; host = "devufi"; });
 	"ufiprod.io" = (makeVirtualHost { root = "/home/alfianguide/prj/ufiprod"; host = "localhost"; });
       };
-
-services.httpd.phpOptions = ''
-     max_execution_time = 30
-     post_max_size = 0
-     upload_max_size = 0
-     upload_max_filesize = 0
-'';
 
 }

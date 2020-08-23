@@ -7,6 +7,4 @@
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
-  # Enable touchpad support.
-  services.xserver.libinput.enable = true;
 }
