@@ -12,6 +12,11 @@
       defaultSession = "none+dwm";
       lightdm = {
          enable = true;
+	 greeters = {
+	   gtk = {
+	     enable = true;
+	   };
+	 };
       };
     };
 
@@ -20,12 +25,6 @@
         enable = true;
       };
     };
-#    windowManager = {
-#      session = [{
-#        name = "dwm";
-#        start = "/run/current-system/sw/bin/dwm";
-#      }];
-#    };
 
     desktopManager = {
       xterm.enable = false;
@@ -35,7 +34,6 @@
   services.xserver.layout = "us";
   services.xserver.xkbOptions = "eurosign:e";
 
-  # Enable the KDE Desktop Environment.
 #  services.xserver.displayManager.sddm.enable = true;
 #  services.xserver.desktopManager.plasma5.enable = true;
 
