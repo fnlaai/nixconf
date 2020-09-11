@@ -5,9 +5,11 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
   virtualisation.docker.enable = true;
-  
+  services.logind.extraConfig = ''
+   HandlePowerKey=ignore
+  '';
+
   # Dnscrypt
 
   services.dnscrypt-proxy2 = {

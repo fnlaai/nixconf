@@ -9,6 +9,7 @@
       dmenu
       tabbed
       slstatus
+      feh
    ];
    nixpkgs.config.allowUnfree = true;
    nixpkgs.config.st.patches = [
@@ -32,7 +33,8 @@
      enableSSHSupport = true;
      pinentryFlavor = "gnome3";
    };
+   programs.adb.enable = true;
 
-  programs.fish.enable = true;
+   programs.fish.enable = true;
   
 }
