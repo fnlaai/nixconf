@@ -40,6 +40,7 @@ services.httpd.phpOptions = ''
      post_max_size = 0
      upload_max_size = 0
      upload_max_filesize = 0
+     memory_limit = 1G
 '';
 
 }

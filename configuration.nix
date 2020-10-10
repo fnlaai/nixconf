@@ -15,8 +15,7 @@
       ./networking.nix
       ./services.nix
       ./users.nix
-      #./radeon.nix
-      #./nvidia.nix
+      ./radeon.nix
       ./scripts.nix
     ];
 
