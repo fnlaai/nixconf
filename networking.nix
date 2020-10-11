@@ -1,9 +1,7 @@
 { config, pkgs, ... }:
 {
 
-  networking.hostName = "deepweb"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
+  networking.hostName = "lumos";
   networking.networkmanager.enable = true;
   networking.networkmanager.unmanaged = [ "docker0" "virbr0" "anbox0" ];
 
