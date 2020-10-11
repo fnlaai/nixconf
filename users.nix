@@ -7,7 +7,7 @@
    programs.gnupg.agent = {
      enable = true;
      enableSSHSupport = true;
-     pinentryFlavor = "curses";
+     pinentryFlavor = "tty";
    };
 
   programs.fish.enable = true;
