@@ -3,14 +3,14 @@
 {
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.kernelPatches = [
-    { name = "amdgpu-config";
-      patch = null;
-      extraConfig = ''
-        DRM_AMD_DC_DCN1_0 y
-      '';
-    }
-  ];
+ # boot.kernelPatches = [
+ #   { name = "amdgpu-config";
+ #     patch = null;
+ #     extraConfig = ''
+ #       DRM_AMD_DC_DCN1_0 y
+ #     '';
+ #   }
+ # ];
   services.xserver.videoDrivers = [ "amdgpu" ];
   hardware.cpu.amd.updateMicrocode = true;
   hardware.opengl.enable = true;
