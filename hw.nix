@@ -1,12 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  # Enable CUPS to print documents.
   # services.printing.enable = true;
-
-  # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
-  # Enable touchpad support.
-  services.xserver.libinput.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    extraConfig = ''
+        load-module module-udev-detect tsched=0
+    '';
+    support32Bit = true;
+  };
 }

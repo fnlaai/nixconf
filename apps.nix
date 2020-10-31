@@ -3,21 +3,23 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  programs.gnupg.agent = {
-     enable = true;
-     enableSSHSupport = true;
-     pinentryFlavor = "tty";
-   };
+  programs = {
+    gnupg.agent = {
+        enable = true;
+        enableSSHSupport = true;
+        pinentryFlavor = "tty";
+    };
+    fish.enable = true;
+    adb.enable = true;
+  };
 
-  programs.fish.enable = true;
-  
   virtualisation.docker.enable = true;
-  programs.adb.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     xclip
+    powerdevil
+    mesa
   ];
-
 }

@@ -8,5 +8,4 @@
   };
 
   nix.trustedUsers = [ "root" "alfianguide" ];
-  
 }
