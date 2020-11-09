@@ -6,13 +6,11 @@
       ./hardware-configuration.nix
       ./hw.nix
       ./apps.nix
-      ./apache.nix
       ./primary.nix
       ./networking.nix
       ./services.nix
       ./users.nix
       ./radeon.nix
-      ./scripts.nix
     ];
 
   # This value determines the NixOS release from which the default

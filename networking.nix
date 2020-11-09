@@ -22,7 +22,8 @@
     extraHosts = ''
     127.0.0.1 siapmii.com siapmiiprod.com
     127.0.0.1 devufi.io ufiacademy.com ufiprod.io
-        127.0.0.1 dropit.io
+    127.0.0.1 dropit.io web.io
+    192.168.43.211 acerpc
     '';
     resolvconf.useLocalResolver = true;
     nameservers = [ "::1"];
