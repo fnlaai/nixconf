@@ -5,11 +5,13 @@
     openssh.enable = true;
     xserver = {
         enable = true;
-        #videoDrivers = [ "amdgpu" ];
+        videoDrivers = [ "amdgpu" ];
         layout = "us";
         libinput.enable = true;
         xkbOptions = "eurosign:e";
+        displayManager.startx.enable = true;
         displayManager.sddm.enable = false;
+        displayManager.lightdm.enable = false;
         desktopManager = {
           xterm = {
             enable = false;
@@ -40,15 +42,6 @@
         # server_names = [ ... ];
       };
     };
-  };
-  
-  systemd.services.dnscrypt-proxy2.serviceConfig = {
-    StateDirectory = "dnscrypt-proxy";
-  };
-
-  security.pam.services.sddm.enableKwallet = true;
-
-  services = {
     httpd = {
       enable = true;
       adminAddr = "alfianguide@gmail.com";
@@ -93,4 +86,8 @@
           };
     };
   };
+  
+  systemd.services.dnscrypt-proxy2.serviceConfig.StateDirectory = "dnscrypt-proxy";
+
+  security.pam.services.sddm.enableKwallet = true;
 }

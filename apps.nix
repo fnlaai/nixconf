@@ -11,7 +11,6 @@ let
       xclip -selection clipboard -o
   '';
 in {
-  nixpkgs.config.allowUnfree = true;
 
   programs = {
     gnupg.agent = {
@@ -23,7 +22,10 @@ in {
     adb.enable = true;
   };
 
-  virtualisation.docker.enable = true;
+  virtualisation = {
+    docker.enable = true;
+    virtualbox.host.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     xclip
@@ -33,10 +35,13 @@ in {
     dmenu
   ];
 
-  nixpkgs.config.st.patches = [
-    ./st-scrollback-20200419-72e3f6c.diff
-    ./st-scrollback-mouse-20191024-a2c479c.diff
-    ./st-scrollback-mouse-altscreen-20200416-5703aa0.diff
-    ./st-nordtheme-0.8.2.diff
-  ];
+  nixpkgs.config = {
+    allowUnfree = true;
+    st.patches = [
+        ./st-scrollback-20200419-72e3f6c.diff
+        ./st-scrollback-mouse-20191024-a2c479c.diff
+        ./st-scrollback-mouse-altscreen-20200416-5703aa0.diff
+        ./st-nordtheme-0.8.2.diff
+    ];
+  };
 }

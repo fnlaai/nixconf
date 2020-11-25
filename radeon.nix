@@ -3,13 +3,19 @@
 {
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  hardware.enableRedistributableFirmware = true;
-
-  hardware.cpu.amd.updateMicrocode = true;
-
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+  hardware = {
+    enableRedistributableFirmware = true;
+    cpu.amd.updateMicrocode = true;
+    opengl = {
+        enable = true;
+        driSupport = true;
+        driSupport32Bit = true;
+        extraPackages = with pkgs; [
+        amdvlk
+        ];
+        extraPackages32 = with pkgs; [
+        driversi686Linux.amdvlk
+        ];
+    };
   };
 }
