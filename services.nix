@@ -79,7 +79,6 @@
             };
         in
           {
-            "siapmii.com" = (makeVirtualHost { root = "/home/alfianguide/prj/siapmii"; host = "localhost"; });
             "devufi.io" = (makeVirtualHost { root = "/home/alfianguide/prj/ufiacademy"; host = "devufi"; });
             "ufiprod.io" = (makeVirtualHost { root = "/home/alfianguide/prj/ufiprod"; host = "localhost"; });
             "web.io" = (makeVirtualHost { root = "/home/alfianguide/"; host = "localhost"; });

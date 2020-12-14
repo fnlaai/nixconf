@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 
-
 let
   pbcopy = pkgs.writeScriptBin "pbcopy" ''
       #!${pkgs.stdenv.shell}
@@ -11,7 +10,6 @@ let
       xclip -selection clipboard -o
   '';
 in {
-
   programs = {
     gnupg.agent = {
         enable = true;
@@ -24,7 +22,6 @@ in {
 
   virtualisation = {
     docker.enable = true;
-    virtualbox.host.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -33,6 +30,7 @@ in {
     pbpaste
     st
     dmenu
+    discord
   ];
 
   nixpkgs.config = {

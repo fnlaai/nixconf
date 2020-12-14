@@ -17,7 +17,6 @@
   # Open ports in the firewall.
   # firewall.allowedTCPPorts = [ ... ];
   # firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
     firewall.enable = false;
     extraHosts = ''
     127.0.0.1 siapmii.com siapmiiprod.com
