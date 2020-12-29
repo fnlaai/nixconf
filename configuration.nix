@@ -2,7 +2,7 @@
 
 {
   imports =
-    [ 
+    [
       ./hardware-configuration.nix
       ./hw.nix
       ./apps.nix
@@ -13,6 +13,5 @@
       ./nvidia.nix
     ];
 
-  system.stateVersion = "20.03";
+  system.stateVersion = "unstable";
 }
-

@@ -1,36 +1,52 @@
 { config, pkgs, ... }:
-
+let
+  pbcopy = pkgs.writeScriptBin "pbcopy" ''
+    #!${pkgs.stdenv.shell}
+    xsel --clipboard --input
+  '';
+  pbpaste = pkgs.writeScriptBin "pbpaste" ''
+    #!${pkgs.stdenv.shell}
+    xsel --clipboard --output
+  '';
+in
 {
   environment.systemPackages = with pkgs; [
-     st
-     dmenu
-     tabbed
-     feh
+    st
+    dmenu
+    tabbed
+    feh
+    xsel
+    pbcopy
+    pbpaste
+    slstatus
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
-  nixpkgs.config.st.patches = [
-    ./st-scrollback-0.8.2.diff
-    ./st-scrollback-mouse-0.8.2.diff
-    ./st-scrollback-mouse-altscreen-20190131-e23acb9.diff
-    ./st-nordtheme-0.8.2.diff
-  ];
-
-  nixpkgs.config.dwm.patches = [
-    ./dwm-systray-6.2.diff
-    ./dwm-resizehint-patch.diff
-    ./dwm-nord.diff
-    ./dwm-tabbed.diff
-  ];
-
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryFlavor = "tty";
+  nixpkgs.config = {
+    allowUnfree = true;
+    st.patches = [
+      ./patches/st-nordtheme-0.8.2.diff
+      ./patches/st-scrollback.diff
+      ./patches/st-scrollback-mouse.diff
+      ./patches/st-scrollback-mouse-altscreen.diff
+    ];
+    slstatus.patches = [
+      ./patches/slstatus-patch.diff
+    ];
+    dwm.patches = [
+      ./patches/dwm-systray-6.2.diff
+      ./patches/dwm-resizehint-patch.diff
+      ./patches/dwm-nord.diff
+      ./patches/dwm-tabbed.diff
+    ];
   };
-  
-  programs.adb.enable = true;
 
-  programs.fish.enable = true;
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      pinentryFlavor = "tty";
+    };
+    adb.enable = true;
+    fish.enable = true;
+  };
 }
