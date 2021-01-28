@@ -1,20 +1,20 @@
 { config, pkgs, ... }:
-
 let
   pbcopy = pkgs.writeScriptBin "pbcopy" ''
-      #!${pkgs.stdenv.shell}
-      xclip -selection clipboard
+    #!${pkgs.stdenv.shell}
+    xclip -selection clipboard
   '';
   pbpaste = pkgs.writeScriptBin "pbpaste" ''
-      #!${pkgs.stdenv.shell}
-      xclip -selection clipboard -o
+    #!${pkgs.stdenv.shell}
+    xclip -selection clipboard -o
   '';
-in {
+in
+{
   programs = {
     gnupg.agent = {
-        enable = true;
-        enableSSHSupport = true;
-        pinentryFlavor = "tty";
+      enable = true;
+      enableSSHSupport = true;
+      pinentryFlavor = "tty";
     };
     fish.enable = true;
     adb.enable = true;
@@ -36,10 +36,11 @@ in {
   nixpkgs.config = {
     allowUnfree = true;
     st.patches = [
-        ./st-scrollback-20200419-72e3f6c.diff
-        ./st-scrollback-mouse-20191024-a2c479c.diff
-        ./st-scrollback-mouse-altscreen-20200416-5703aa0.diff
-        ./st-nordtheme-0.8.2.diff
+      ./patches/st-scrollback-20200419-72e3f6c.diff
+      ./patches/st-scrollback-mouse-20191024-a2c479c.diff
+      ./patches/st-scrollback-mouse-altscreen-20200416-5703aa0.diff
+      ./patches/st-nordtheme-0.8.2.diff
+      ./patches/st-0.8.2-font-patch.diff
     ];
   };
 }
