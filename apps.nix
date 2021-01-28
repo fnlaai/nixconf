@@ -19,6 +19,8 @@ in
     pbcopy
     pbpaste
     slstatus
+    discord
+    rustup
   ];
 
   nixpkgs.config = {
@@ -31,6 +33,7 @@ in
     ];
     slstatus.patches = [
       ./patches/slstatus-patch.diff
+      ./patches/slstatus-patch-locale.diff
     ];
     dwm.patches = [
       ./patches/dwm-systray-6.2.diff
