@@ -52,4 +52,6 @@ in
     adb.enable = true;
     fish.enable = true;
   };
+
+  virtualisation.docker.enable = true;
 }

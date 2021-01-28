@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-
 {
   services.httpd.enable = true;
   services.httpd.adminAddr = "alfianguide@gmail.com";
