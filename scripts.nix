@@ -1,14 +1,8 @@
 { config, pkgs, ... }:
-
 let
-  pbcopy = pkgs.writeScriptBin "pbcopy" ''
-      #!${pkgs.stdenv.shell}
-      xclip -selection clipboard
-  '';
-  pbpaste = pkgs.writeScriptBin "pbpaste" ''
-      #!${pkgs.stdenv.shell}
-      xclip -selection clipboard -o
-  '';
-in {
+  pbcopy = pkgs.writeScriptBin "pbcopy" (builtins.readFile (./scripts/pbcopy));
+  pbpaste = pkgs.writeScriptBin "pbpaste" (builtins.readFile (./scripts/pbpaste));
+in
+{
   environment.systemPackages = [ pbcopy pbpaste ];
 }

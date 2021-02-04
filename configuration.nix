@@ -8,6 +8,7 @@
     ./primary.nix
     ./networking.nix
     ./services.nix
+    ./scripts.nix
     ./users.nix
     ./radeon.nix
   ];

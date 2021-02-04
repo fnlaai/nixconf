@@ -1,14 +1,5 @@
 { config, pkgs, ... }:
-let
-  pbcopy = pkgs.writeScriptBin "pbcopy" ''
-    #!${pkgs.stdenv.shell}
-    xclip -selection clipboard
-  '';
-  pbpaste = pkgs.writeScriptBin "pbpaste" ''
-    #!${pkgs.stdenv.shell}
-    xclip -selection clipboard -o
-  '';
-in
+
 {
   programs = {
     gnupg.agent = {
@@ -26,8 +17,6 @@ in
 
   environment.systemPackages = with pkgs; [
     xclip
-    pbcopy
-    pbpaste
     st
     dmenu
     discord
